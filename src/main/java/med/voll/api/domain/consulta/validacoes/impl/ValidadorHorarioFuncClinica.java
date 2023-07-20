@@ -15,8 +15,8 @@ public class ValidadorHorarioFuncClinica implements ValidadorAgendamentoDeConsul
         // funciona de 7 as 19 com 1 hora de duracao por consulta fixa
 
         var domingo = dataConsulta.getDayOfWeek().equals(DayOfWeek.SUNDAY);
-        var antesDaAberturaDaClinica = dataConsulta.getHour() <7;
-        var depoisDoEncerramentoDaClinica = dataConsulta.getHour() <18;
+        var antesDaAberturaDaClinica = dataConsulta.getHour() < 7;
+        var depoisDoEncerramentoDaClinica = dataConsulta.getHour() > 18;
         if (domingo || antesDaAberturaDaClinica || depoisDoEncerramentoDaClinica){
             throw new ValidationException("Consulta fora do horrario de funcionamento");
         }
